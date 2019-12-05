@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class TicTacToe extends Application {
+	Server serverConnection;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -29,7 +30,8 @@ public class TicTacToe extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		primaryStage.setTitle("Let's Play Tic Tac Toe!!!");
+		primaryStage.setTitle("T^3 start");
+		
 		/*___________________________________________*/
 		BorderPane portPane = new BorderPane();
 		portPane.setPrefSize(800,800);
@@ -62,16 +64,17 @@ public class TicTacToe extends Application {
 		
 		/*_________________________________________*/
 		
-		startServer.setOnAction(e->{ 
-			primaryStage.setScene(serverScene);
-		}
-		/*primaryStage.setTitle("This is the Server");
-		serverConnection = new Server(data -> {
-		Platform.runLater(()->{
-			listItems.getItems().add(data.toString());
+		startServer.setOnAction(e->{ primaryStage.setScene(serverScene);
+		primaryStage.setTitle("This is the Server");
+			this.serverConnection = new Server(data -> {
+				Platform.runLater(()->{
+					serverList.getItems().add(data.toString());
 				});
-			}); */
-		);
+
+			});
+		
+		});
+		
 		
 		/*___________________________________________*/
 		

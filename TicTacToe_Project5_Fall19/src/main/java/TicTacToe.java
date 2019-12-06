@@ -66,14 +66,9 @@ public class TicTacToe extends Application {
 		
 		startServer.setOnAction(e->{ primaryStage.setScene(serverScene);
 		primaryStage.setTitle("This is the Server");
-			this.serverConnection = new Server(data -> {
-				Platform.runLater(()->{
-					serverList.getItems().add(data.toString());
-				});
-
-			});
+			this.serverConnection = new Server( Integer.parseInt(portText.getText()));//end of serverConnection
 		
-		});
+		});//end of startServer
 		
 		
 		/*___________________________________________*/
